@@ -1,5 +1,5 @@
 import { fetchApi } from "../utils";
-import {ApiConfig} from "@common/types/api";
+import { ApiConfig } from "@common/types/api";
 
 class Config {
   private config: ApiConfig;

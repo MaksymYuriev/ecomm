@@ -1,20 +1,20 @@
-import {InferGetStaticPropsType} from "next";
+import { InferGetStaticPropsType } from "next";
 
 import getAllProducts from "@framework/product/get-all-products";
-import {getConfig} from "@framework/api/config";
+import { getConfig } from "@framework/api/config";
+import { Layout } from "@components/common";
 
 export const getStaticProps = async () => {
-  const config = getConfig()
-  const products = await getAllProducts(config)
+  const config = getConfig();
+  const products = await getAllProducts(config);
 
-  return {props: {products}}
-}
+  return { props: { products } };
+};
 
-export default function Home({products}: InferGetStaticPropsType<typeof getStaticProps>) {
+export const Home = ({
+  products,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
+  return <div>{JSON.stringify(products)}</div>;
+};
 
-  return (
-    <div>
-      {JSON.stringify(products)}
-    </div>
-  )
-}
+Home.Layout = Layout;
